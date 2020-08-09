@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/MafiaGame/static/css/main.8415f7d7.chunk.css",
+    "main.js": "/MafiaGame/static/js/main.10bff02f.chunk.js",
+    "main.js.map": "/MafiaGame/static/js/main.10bff02f.chunk.js.map",
+    "runtime-main.js": "/MafiaGame/static/js/runtime-main.01868803.js",
+    "runtime-main.js.map": "/MafiaGame/static/js/runtime-main.01868803.js.map",
+    "static/js/2.69b2c474.chunk.js": "/MafiaGame/static/js/2.69b2c474.chunk.js",
+    "static/js/2.69b2c474.chunk.js.map": "/MafiaGame/static/js/2.69b2c474.chunk.js.map",
+    "index.html": "/MafiaGame/index.html",
+    "precache-manifest.c2ed5dc55423d1de3bc0ace6b3ba65db.js": "/MafiaGame/precache-manifest.c2ed5dc55423d1de3bc0ace6b3ba65db.js",
+    "service-worker.js": "/MafiaGame/service-worker.js",
+    "static/css/main.8415f7d7.chunk.css.map": "/MafiaGame/static/css/main.8415f7d7.chunk.css.map",
+    "static/js/2.69b2c474.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.69b2c474.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.01868803.js",
+    "static/js/2.69b2c474.chunk.js",
+    "static/css/main.8415f7d7.chunk.css",
+    "static/js/main.10bff02f.chunk.js"
+  ]
+}
