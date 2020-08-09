@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Input from './Components/Input';
+import Participants from './Components/Participants';
+import Participant from './Components/Participant';
+
 
 function App() {
+  const [players, setPlayers] = useState<string[]>([]);
+  const [roles, setRoles] = useState<string[]>([]);
+
+  const addPlayer = (participant: string) => {
+    if (players.includes(participant)) alert("Player already exists.")
+    else setPlayers([...players, participant])
+  }
+
+  const addRole = (participant: string) => {
+    if (players.includes(participant)) alert("Player already exists.")
+    else setRoles([...roles, participant])
+  }
+
+  const deleteRole = (participant: string) => {
+    setRoles(roles.filter(role => role !== participant))
+  }
+
+  const deletePlayer = (participant: string) => {
+    setPlayers(players.filter(player => player !== participant))
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Mafia</h1>
+      <div className="inputs">
+        <div className="roles">
+          <Input label="Role" add={addRole} labelColor="green" />
+          <Participants participants={roles} deleteFunction={deleteRole} />
+        </div>
+        <div className="players">
+          <Input label="Player" add={addPlayer} labelColor="blue" />
+          <Participants participants={players} deleteFunction={deleteRole} />
+        </div>
+      </div>
     </div>
   );
 }
