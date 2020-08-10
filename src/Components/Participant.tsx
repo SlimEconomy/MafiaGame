@@ -1,5 +1,4 @@
 import React from 'react'
-import getImageOfRole from '../ImageOfRole'
 
 interface Props {
     participant: string,
