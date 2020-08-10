@@ -3,11 +3,17 @@ import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
 import Participant from './Components/Participant';
+import StartGame from './Components/StartGame';
 
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);
   const [roles, setRoles] = useState<string[]>([]);
+  const [started, setStarted] = useState(false);
+
+  const toggleStart = () => {
+    setStarted(!started);
+  }
 
   const addPlayer = (participant: string) => {
     if (players.includes(participant)) alert("Player already exists.")
@@ -15,8 +21,7 @@ function App() {
   }
 
   const addRole = (participant: string) => {
-    if (players.includes(participant)) alert("Player already exists.")
-    else setRoles([...roles, participant])
+    setRoles([...roles, participant])
   }
 
   const deleteRole = (participant: string) => {
@@ -29,17 +34,24 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Mafia</h1>
-      <div className="inputs">
-        <div className="roles">
-          <Input label="Role" add={addRole} labelColor="green" />
-          <Participants participants={roles} deleteFunction={deleteRole} />
-        </div>
-        <div className="players">
-          <Input label="Player" add={addPlayer} labelColor="blue" />
-          <Participants participants={players} deleteFunction={deleteRole} />
-        </div>
-      </div>
+      <h1>MafiaGame</h1>
+      {
+        started ?
+          <StartGame startGame={toggleStart} players={players} roles={roles} /> :
+          <>
+            <div className="inputs">
+              <div className="roles participants">
+                <Input label="Role" add={addRole} labelColor="green" />
+                <Participants participants={roles} deleteFunction={deleteRole} />
+              </div>
+              <div className="players participants">
+                <Input label="Player" add={addPlayer} labelColor="blue" />
+                <Participants participants={players} deleteFunction={deletePlayer} />
+              </div>
+            </div>
+            <button onClick={toggleStart}>Start game</button>
+          </>
+      }
     </div>
   );
 }

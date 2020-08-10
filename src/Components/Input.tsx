@@ -10,8 +10,9 @@ const Input: React.FC<Props> = ({ add, label, labelColor }) => {
     const [inputValue, setInputValue] = useState("");
 
     const submit = (): void => {
-        if (!inputValue) alert("Input field cannot be empty.")
+        if (!inputValue) return alert("Input field cannot be empty.")
         add(inputValue);
+        setInputValue("");
     }
 
     return (

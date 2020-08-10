@@ -49,8 +49,27 @@ button:hover{
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: center;
 }
 
 .participant div:hover{
   cursor: pointer;
+}
+
+.participants{
+  margin-bottom: 1.17rem
+}
+
+@media (max-width: 1550px){
+  .inputs{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px){
+  .App{
+    width: 100%;
+  }
 }
