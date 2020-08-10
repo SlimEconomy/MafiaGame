@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "13e7751e6b4b95d63865cccd4f419093",
+    "revision": "e8bb9c361a8baeaea5b9f47253c6659a",
     "url": "/MafiaGame/index.html"
   },
   {
-    "revision": "5c144b343992cac4e6e6",
-    "url": "/MafiaGame/static/css/main.c4b88a7e.chunk.css"
+    "revision": "52e74a16c669bef899bd",
+    "url": "/MafiaGame/static/css/main.6beb6d75.chunk.css"
   },
   {
-    "revision": "4ec76abe5c608aa29845",
-    "url": "/MafiaGame/static/js/2.7b24f16c.chunk.js"
+    "revision": "3fbe1001e5943c8173b1",
+    "url": "/MafiaGame/static/js/2.8fe782aa.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/MafiaGame/static/js/2.7b24f16c.chunk.js.LICENSE.txt"
+    "url": "/MafiaGame/static/js/2.8fe782aa.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5c144b343992cac4e6e6",
-    "url": "/MafiaGame/static/js/main.237c6979.chunk.js"
+    "revision": "52e74a16c669bef899bd",
+    "url": "/MafiaGame/static/js/main.cfb11c8b.chunk.js"
   },
   {
     "revision": "e2b9c7a6e901b47baa6b",
@@ -34,9 +34,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "f6c60ed0445c185de1111e9e7a1661fb",
     "url": "/MafiaGame/static/media/mafia.f6c60ed0.png"
-  },
-  {
-    "revision": "c511d864b5cf414e8c92438baa7a2c84",
-    "url": "/MafiaGame/static/media/notfound.c511d864.png"
   }
 ]);

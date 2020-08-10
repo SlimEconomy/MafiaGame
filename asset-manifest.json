@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/MafiaGame/static/css/main.c4b88a7e.chunk.css",
-    "main.js": "/MafiaGame/static/js/main.237c6979.chunk.js",
-    "main.js.map": "/MafiaGame/static/js/main.237c6979.chunk.js.map",
+    "main.css": "/MafiaGame/static/css/main.6beb6d75.chunk.css",
+    "main.js": "/MafiaGame/static/js/main.cfb11c8b.chunk.js",
+    "main.js.map": "/MafiaGame/static/js/main.cfb11c8b.chunk.js.map",
     "runtime-main.js": "/MafiaGame/static/js/runtime-main.01868803.js",
     "runtime-main.js.map": "/MafiaGame/static/js/runtime-main.01868803.js.map",
-    "static/js/2.7b24f16c.chunk.js": "/MafiaGame/static/js/2.7b24f16c.chunk.js",
-    "static/js/2.7b24f16c.chunk.js.map": "/MafiaGame/static/js/2.7b24f16c.chunk.js.map",
+    "static/js/2.8fe782aa.chunk.js": "/MafiaGame/static/js/2.8fe782aa.chunk.js",
+    "static/js/2.8fe782aa.chunk.js.map": "/MafiaGame/static/js/2.8fe782aa.chunk.js.map",
     "index.html": "/MafiaGame/index.html",
-    "precache-manifest.66ca4ed1608befa13448c63bcdea1589.js": "/MafiaGame/precache-manifest.66ca4ed1608befa13448c63bcdea1589.js",
+    "precache-manifest.5803ecba2d7ead2ba9d1c21941efe614.js": "/MafiaGame/precache-manifest.5803ecba2d7ead2ba9d1c21941efe614.js",
     "service-worker.js": "/MafiaGame/service-worker.js",
-    "static/css/main.c4b88a7e.chunk.css.map": "/MafiaGame/static/css/main.c4b88a7e.chunk.css.map",
-    "static/js/2.7b24f16c.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.7b24f16c.chunk.js.LICENSE.txt",
+    "static/css/main.6beb6d75.chunk.css.map": "/MafiaGame/static/css/main.6beb6d75.chunk.css.map",
+    "static/js/2.8fe782aa.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.8fe782aa.chunk.js.LICENSE.txt",
     "static/media/detective.png": "/MafiaGame/static/media/detective.9ae23102.png",
     "static/media/hunter.png": "/MafiaGame/static/media/hunter.662fad8e.png",
-    "static/media/mafia.png": "/MafiaGame/static/media/mafia.f6c60ed0.png",
-    "static/media/notfound.png": "/MafiaGame/static/media/notfound.c511d864.png"
+    "static/media/mafia.png": "/MafiaGame/static/media/mafia.f6c60ed0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.01868803.js",
-    "static/js/2.7b24f16c.chunk.js",
-    "static/css/main.c4b88a7e.chunk.css",
-    "static/js/main.237c6979.chunk.js"
+    "static/js/2.8fe782aa.chunk.js",
+    "static/css/main.6beb6d75.chunk.css",
+    "static/js/main.cfb11c8b.chunk.js"
   ]
 }
