@@ -14,7 +14,6 @@ const Participant: React.FC<Props> = ({ participant, deleteFunction, role }) => 
         }
         catch (err) {
             //default case: notfound
-            bgImage = require(`../Images/notfound.png`);
         }
     }
     return (

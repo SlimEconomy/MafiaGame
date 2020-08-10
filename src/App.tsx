@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
@@ -11,8 +11,21 @@ function App() {
   const [roles, setRoles] = useState<string[]>([]);
   const [started, setStarted] = useState(false);
 
+  useEffect(() => {
+    const playersFromStorage: null | string = localStorage.getItem("players");
+    const playersArray: Array<string> = playersFromStorage ? JSON.parse(playersFromStorage) : [];
+    const rolesFromStorage: string | null = localStorage.getItem("roles");
+    const rolesArray: Array<string> = rolesFromStorage ? JSON.parse(rolesFromStorage) : [];
+    setPlayers(playersArray);
+    setRoles(rolesArray);
+  }, [])
+
   const toggleStart = () => {
+    if (players.length !== roles.length) return alert("Players and roles must be the same amount.");
     setStarted(!started);
+    //save state in local storage
+    localStorage.setItem("players", JSON.stringify(players));
+    localStorage.setItem("roles", JSON.stringify(roles));
   }
 
   const addPlayer = (participant: string) => {

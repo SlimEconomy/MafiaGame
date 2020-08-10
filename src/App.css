@@ -11,7 +11,7 @@ html, body {
 }
 .footer,
 .push {
-  height: 50px;
+  height: 100px;
   text-align: center;
 }
 
@@ -78,6 +78,8 @@ button:hover{
 
 .participant-in-game{
   margin: 1rem 0;
+  width: 50%;
+  margin: auto;
 }
 
 .participants{
@@ -90,7 +92,7 @@ button:hover{
   }
 }
 
-@media (max-width: 400px){
+@media (max-width: 1000px){
   .App{
     width: 100%;
   }
