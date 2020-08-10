@@ -12,29 +12,41 @@ interface Props {
 }
 
 const StartGame: React.FC<Props> = ({ players, roles }) => {
-    const [assignedRoles, setAssignedRoles] = useState<LooseObject>({})
+    const [activePlayers, setActivePlayers] = useState<LooseObject>({})
+    const [deadPlayers, setDeadPlayers] = useState({});
 
     useEffect(() => {
         shuffle(players);
         shuffle(roles);
-        setAssignedRoles(assignRoles(players, roles))
+        setActivePlayers(assignRoles(players, roles))
     }, [])
 
     const deleteParticipant = (player: string, role?: string): void => { //delete a dead player from the game
         if (role) {
-            const index = assignedRoles[role].indexOf(player); //get index of this player in the role array
+            const index = activePlayers[role].indexOf(player); //get index of this player in the role array
             if (index > -1) {
-                assignedRoles[role].splice(index, 1);
+                activePlayers[role].splice(index, 1);
             }
-            setAssignedRoles({ //to update state with spliced array
-                ...assignedRoles,
+            setActivePlayers({ //to update state with spliced array
+                ...activePlayers,
             })
         }
     }
 
     return (
         <div>
-            {Object.keys(assignedRoles).length !== 0 && <Participants deleteFunction={deleteParticipant} participants={assignedRoles} />}
+            {Object.keys(activePlayers).length !== 0 &&
+                <>
+                    <div>
+                        <h3 style={{ color: "#00FF7F" }}>Active players</h3>
+                        <Participants deleteFunction={deleteParticipant} participants={activePlayers} />
+                    </div>
+                    <div>
+                        <h3 style={{ color: "#EA3C53" }}>Dead players</h3>
+                        <Participants participants={deadPlayers} />
+                    </div>
+                </>
+            }
         </div>
     )
 }

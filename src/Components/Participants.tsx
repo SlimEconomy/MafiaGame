@@ -4,7 +4,7 @@ import { LooseObject } from "../AssignRoles"
 
 interface Props {
     participants: Array<string> | LooseObject;
-    deleteFunction: (participant: string, role?: string) => void
+    deleteFunction?: (participant: string, role?: string) => void
 }
 
 const Participants: React.FC<Props> = ({ participants, deleteFunction }) => {
