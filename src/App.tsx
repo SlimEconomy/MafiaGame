@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
-import Participant from './Components/Participant';
 import StartGame from './Components/StartGame';
+import { Button } from '@material-ui/core';
 
 
 function App() {
@@ -62,7 +62,7 @@ function App() {
                 <Participants participants={players} deleteFunction={deletePlayer} />
               </div>
             </div>
-            <button onClick={toggleStart}>Start game</button>
+            <Button variant="contained" color="primary" onClick={toggleStart}>Start game</Button>
           </>
       }
     </div>

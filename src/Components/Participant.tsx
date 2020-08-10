@@ -1,4 +1,5 @@
 import React from 'react'
+import { Delete } from '@material-ui/icons';
 
 interface Props {
     participant: string,
@@ -21,7 +22,7 @@ const Participant: React.FC<Props> = ({ participant, deleteFunction, role }) => 
             <h3>{participant}</h3>
             {deleteFunction &&
                 <div onClick={() => deleteFunction(participant, role)}>
-                    <i className="fas fa-trash"></i>
+                    <Delete color="error" />
                 </div>}
         </div>
     )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Button } from "@material-ui/core"
 
 interface Props {
     add: (participant: string) => void;
@@ -19,7 +20,7 @@ const Input: React.FC<Props> = ({ add, label, labelColor }) => {
         <div className="input">
             <div style={{ backgroundColor: labelColor }}>{label}</div>
             <input type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} />
-            <button onClick={submit}>Add</button>
+            <Button variant="contained" color="primary" onClick={submit}>Add</Button>
         </div>
     )
 }
