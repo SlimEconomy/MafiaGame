@@ -3,11 +3,9 @@ html, body {
   margin: 0;
 }
 .wrapper {
-  min-height: 100%;
-
   /* Equal to height of footer */
   /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: -100px;
+  margin-bottom: 50px;
 }
 .footer,
 .push {
@@ -72,6 +70,16 @@ button:hover{
     background-position-x: center;
 }
 
+.supported-role{
+  background-repeat: no-repeat;
+    background-size: contain;
+    background-position-x: right;
+    height: "4rem";
+    display: flex;
+    align-items: center;
+    margin: 0.4rem 0
+}
+
 .participant div:hover{
   cursor: pointer;
 }
@@ -79,6 +87,20 @@ button:hover{
 .participant-in-game{
   margin: 1rem auto;
   width: 50%;
+}
+.go-back-button button{
+  margin-bottom: 1.17rem;
+  text-transform: none;
+}
+
+.info-icon{
+  color: rgb(233, 233, 233) !important
+}
+
+.info-and-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .participants{
@@ -96,3 +118,4 @@ button:hover{
     width: 100%;
   }
 }
+

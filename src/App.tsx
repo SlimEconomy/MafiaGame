@@ -3,13 +3,14 @@ import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
 import StartGame from './Components/StartGame';
-import { Button } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import InfoDialog from './Components/InfoDialog';
 
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);
   const [roles, setRoles] = useState<string[]>([]);
-  const [started, setStarted] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
     const playersFromStorage: null | string = localStorage.getItem("players");
@@ -21,9 +22,10 @@ function App() {
   }, [])
 
   const toggleStart = () => {
+    if (!players.length && !roles.length) return alert("Can't start a game with no participants.")
     if (players.length !== roles.length) return alert("Players and roles must be the same amount.");
-    setStarted(!started);
-    //save state in local storage
+    setGameStarted(!gameStarted);
+    //save state in local storage when game is started
     localStorage.setItem("players", JSON.stringify(players));
     localStorage.setItem("roles", JSON.stringify(roles));
   }
@@ -47,9 +49,16 @@ function App() {
 
   return (
     <div className="App">
-      <h1>MafiaGame</h1>
+      <div className="info-and-title">
+        <h1>MafiaGame</h1>
+        <InfoDialog />
+      </div>
+      {gameStarted && <div className="go-back-button">
+        <Button variant="contained" color="secondary" size="small" onClick={toggleStart}>New game/Go back</Button>
+      </div>
+      }
       {
-        started ?
+        gameStarted ?
           <StartGame startGame={toggleStart} players={players} roles={roles} /> :
           <>
             <div className="inputs">
