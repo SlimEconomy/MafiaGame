@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/MafiaGame/static/css/main.ff1fa018.chunk.css",
-    "main.js": "/MafiaGame/static/js/main.e9ee15ec.chunk.js",
-    "main.js.map": "/MafiaGame/static/js/main.e9ee15ec.chunk.js.map",
+    "main.css": "/MafiaGame/static/css/main.54965b9a.chunk.css",
+    "main.js": "/MafiaGame/static/js/main.58c40475.chunk.js",
+    "main.js.map": "/MafiaGame/static/js/main.58c40475.chunk.js.map",
     "runtime-main.js": "/MafiaGame/static/js/runtime-main.01868803.js",
     "runtime-main.js.map": "/MafiaGame/static/js/runtime-main.01868803.js.map",
     "static/js/2.2f142f68.chunk.js": "/MafiaGame/static/js/2.2f142f68.chunk.js",
     "static/js/2.2f142f68.chunk.js.map": "/MafiaGame/static/js/2.2f142f68.chunk.js.map",
     "index.html": "/MafiaGame/index.html",
-    "precache-manifest.9d8417d6f3ca0b8f25ff6d60a892b6f2.js": "/MafiaGame/precache-manifest.9d8417d6f3ca0b8f25ff6d60a892b6f2.js",
+    "precache-manifest.2a2a224648743d91ba606f03cf47a9e9.js": "/MafiaGame/precache-manifest.2a2a224648743d91ba606f03cf47a9e9.js",
     "service-worker.js": "/MafiaGame/service-worker.js",
-    "static/css/main.ff1fa018.chunk.css.map": "/MafiaGame/static/css/main.ff1fa018.chunk.css.map",
+    "static/css/main.54965b9a.chunk.css.map": "/MafiaGame/static/css/main.54965b9a.chunk.css.map",
     "static/js/2.2f142f68.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.2f142f68.chunk.js.LICENSE.txt",
     "static/media/detective.png": "/MafiaGame/static/media/detective.9ae23102.png",
     "static/media/hunter.png": "/MafiaGame/static/media/hunter.662fad8e.png",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.01868803.js",
     "static/js/2.2f142f68.chunk.js",
-    "static/css/main.ff1fa018.chunk.css",
-    "static/js/main.e9ee15ec.chunk.js"
+    "static/css/main.54965b9a.chunk.css",
+    "static/js/main.58c40475.chunk.js"
   ]
 }
