@@ -5,6 +5,7 @@ import SupportedRole from './SupportedRole';
 
 const InfoDialog = () => {
     const [open, setOpen] = useState(false);
+    const supportedRoles: Array<string> = ["mafia", "citizen", "healer", "detective", "hunter"];
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -28,11 +29,7 @@ const InfoDialog = () => {
                 <DialogTitle id="alert-dialog-title">{"Supported roles"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        <SupportedRole role="mafia" />
-                        <SupportedRole role="citizen" />
-                        <SupportedRole role="healer" />
-                        <SupportedRole role="hunter" />
-                        <SupportedRole role="detective" />
+                        {supportedRoles.map(sr => <SupportedRole role={sr} />)}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
