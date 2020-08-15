@@ -13,9 +13,9 @@ function App() {
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
-    const playersFromStorage: null | string = localStorage.getItem("players");
+    const playersFromStorage = localStorage.getItem("players");
     const playersArray: Array<string> = playersFromStorage ? JSON.parse(playersFromStorage) : [];
-    const rolesFromStorage: string | null = localStorage.getItem("roles");
+    const rolesFromStorage = localStorage.getItem("roles");
     const rolesArray: Array<string> = rolesFromStorage ? JSON.parse(rolesFromStorage) : [];
     setPlayers(playersArray);
     setRoles(rolesArray);

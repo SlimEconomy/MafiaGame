@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import shuffle from "../Shuffle"
+import shuffle from "../shuffle"
 import assignRoles from '../AssignRoles'
 import Participants from './Participants'
 import { LooseObject } from "../AssignRoles"
@@ -15,9 +15,9 @@ const StartGame: React.FC<Props> = ({ players, roles }) => {
     const [deadPlayers, setDeadPlayers] = useState<LooseObject>({});
 
     useEffect(() => {
-        shuffle(players);
-        shuffle(roles);
-        setActivePlayers(assignRoles(players, roles))
+        const shuffledPlayersArray = shuffle(players);
+        const shuffledRolesArray = shuffle(roles);
+        setActivePlayers(assignRoles(shuffledPlayersArray, shuffledRolesArray))
     }, [])
 
     const deleteParticipant = (player: string, role?: string): void => { //transfer an active player to a dead one

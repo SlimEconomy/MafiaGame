@@ -31,7 +31,7 @@ body{
   flex-wrap: wrap;
 }
 
-.input{
+.input form{
   width: 20rem;
   height: 2rem;
   display: flex;
@@ -41,7 +41,7 @@ body{
   padding: 0.5rem;
 }
 
-.input div{
+.input label{
   flex: 1;
   display: flex;
   justify-content: center;
