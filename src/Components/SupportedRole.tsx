@@ -13,7 +13,7 @@ const SupportedRole: React.FC<Props> = ({ role }) => {
         //default case: notfound
     }
     return (
-        <div className="supported-role" style={{ backgroundImage: bgImage ? `url("${bgImage}")` : "" }}>
+        <div className="supported-role" style={{ backgroundImage: `url("${bgImage}")` }}>
             <h3>{role}</h3>
         </div>
     )

@@ -2,16 +2,6 @@ html, body {
   height: 100%;
   margin: 0;
 }
-.wrapper {
-  /* Equal to height of footer */
-  /* But also accounting for potential margin-bottom of last child */
-  margin-bottom: 50px;
-}
-.footer,
-.push {
-  height: 100px;
-  text-align: center;
-}
 
 .App {
   text-align: center;
@@ -74,11 +64,10 @@ button:hover{
 }
 
 .content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+  padding-bottom: 2.5rem; 
 }
 
 #footer {
-  position: absolute;
   bottom: 0;
   width: 100%;
   height: 3.5rem;            /* Footer height */
@@ -93,6 +82,16 @@ button:hover{
   background-repeat: no-repeat;
     background-size: contain;
     background-position-x: center;
+}
+
+#page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1
 }
 
 .supported-role{

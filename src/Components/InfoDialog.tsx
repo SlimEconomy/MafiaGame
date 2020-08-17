@@ -29,7 +29,7 @@ const InfoDialog = () => {
                 <DialogTitle id="alert-dialog-title">{"Supported roles"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {supportedRoles.map((supportedRole: string) => <SupportedRole role={supportedRole} />)}
+                        {supportedRoles.map((supportedRole: string) => <SupportedRole key={supportedRole} role={supportedRole} />)}
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

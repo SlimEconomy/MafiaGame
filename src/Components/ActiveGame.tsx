@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import shuffle from "../shuffle"
-import assignRoles from '../AssignRoles'
+import assignRoles from '../assignRoles'
 import Participants from './Participants'
-import { LooseObject } from "../AssignRoles"
+import { LooseObject, Player } from "../types"
 
 interface Props {
     startGame: () => void;
@@ -13,6 +13,7 @@ interface Props {
 const StartGame: React.FC<Props> = ({ players, roles }) => {
     const [activePlayers, setActivePlayers] = useState<LooseObject>({})
     const [deadPlayers, setDeadPlayers] = useState<LooseObject>({});
+    const [participants, setParticipants] = useState<Array<Player>>([]);
 
     useEffect(() => {
         const shuffledPlayersArray = shuffle(players);

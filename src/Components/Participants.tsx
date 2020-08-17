@@ -1,6 +1,6 @@
 import React from 'react'
 import Participant from './Participant'
-import { LooseObject } from "../AssignRoles"
+import { LooseObject } from "../types"
 
 interface Props {
     participants: Array<string> | LooseObject;

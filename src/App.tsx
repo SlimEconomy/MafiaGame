@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
-import StartGame from './Components/StartGame';
+import StartGame from './Components/ActiveGame';
 import Button from '@material-ui/core/Button';
 import InfoDialog from './Components/InfoDialog';
 
@@ -40,11 +40,15 @@ function App() {
   }
 
   const deleteRole = (participant: string) => {
-    setRoles(roles.filter(role => role !== participant))
+    const updatedArray = roles.filter(role => role !== participant);
+    localStorage.setItem("roles", JSON.stringify(updatedArray));
+    setRoles(updatedArray);
   }
 
   const deletePlayer = (participant: string) => {
-    setPlayers(players.filter(player => player !== participant))
+    const updatedArray = players.filter(player => player !== participant);
+    localStorage.setItem("players", JSON.stringify(updatedArray));
+    setPlayers(updatedArray);
   }
 
   return (
