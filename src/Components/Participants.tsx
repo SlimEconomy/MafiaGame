@@ -1,27 +1,23 @@
 import React from 'react'
 import Participant from './Participant'
-import { LooseObject } from "../types"
+import { LooseObject, Role, Player } from "../types"
 
 interface Props {
-    participants: Array<string> | LooseObject;
-    deleteFunction?: (participant: string, role?: string) => void
+    participants: Array<string> | LooseObject | Array<Player>;
+    deleteParticipant?: (participant: string | Player) => void;
 }
 
-const Participants: React.FC<Props> = ({ participants, deleteFunction }) => {
+const Participants: React.FC<Props> = ({ participants, deleteParticipant: deleteFunction }) => {
     return (
         <div>
-            {!Array.isArray(participants) && typeof participants === "object" ? //if object
-                Object.keys(participants).map(key => {
-                    const playerArray: Array<string> = participants[key]
-                    const newArray: Array<JSX.Element> = []; //array of rendered components
-                    for (let player of playerArray) {
-                        newArray.push(<Participant key={key + player} participant={player} deleteFunction={deleteFunction} role={key} />)
-                    }
-                    return newArray;
+            {!Array.isArray(participants) ? //not array
+                Object.keys(participants).map(role => {
+                    const playerArray: Array<Player> = participants[role]
+                    return playerArray.map((player: Player) => <Participant key={player.id} participant={player} deleteFunction={deleteFunction} />)
                 })
                 : //if array
-                participants.map(participant => {
-                    return <Participant key={participant + Math.random()} participant={participant} deleteFunction={deleteFunction} />
+                (participants as Array<Player | string>).map((participant: string | Player, index: number) => {
+                    return <Participant key={typeof participant === "string" ? participant + index : participant.id} participant={participant} deleteFunction={deleteFunction} />
                 })}
         </div>
     )

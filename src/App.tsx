@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Input from './Components/Input';
 import Participants from './Components/Participants';
-import StartGame from './Components/ActiveGame';
+import ActiveGame from './Components/ActiveGame';
 import Button from '@material-ui/core/Button';
 import InfoDialog from './Components/InfoDialog';
+import { Player } from "./types"
 
 
 function App() {
@@ -39,16 +40,20 @@ function App() {
     setRoles([...roles, participant])
   }
 
-  const deleteRole = (participant: string) => {
-    const updatedArray = roles.filter(role => role !== participant);
-    localStorage.setItem("roles", JSON.stringify(updatedArray));
-    setRoles(updatedArray);
+  const deleteRole = (participant: string | Player) => {
+    if (typeof participant === "string") {
+      const updatedArray = roles.filter(role => role !== participant);
+      localStorage.setItem("roles", JSON.stringify(updatedArray));
+      setRoles(updatedArray);
+    }
   }
 
-  const deletePlayer = (participant: string) => {
-    const updatedArray = players.filter(player => player !== participant);
-    localStorage.setItem("players", JSON.stringify(updatedArray));
-    setPlayers(updatedArray);
+  const deletePlayer = (participant: string | Player) => {
+    if (typeof participant === "string") {
+      const updatedArray = players.filter(player => player !== participant);
+      localStorage.setItem("players", JSON.stringify(updatedArray));
+      setPlayers(updatedArray);
+    }
   }
 
   return (
@@ -63,16 +68,16 @@ function App() {
       }
       {
         gameStarted ?
-          <StartGame startGame={toggleStart} players={players} roles={roles} /> :
+          <ActiveGame players={players} roles={roles} /> :
           <>
             <div className="inputs">
               <div className="roles participants">
                 <Input label="Role" add={addRole} labelColor="green" />
-                <Participants participants={roles} deleteFunction={deleteRole} />
+                <Participants participants={roles} deleteParticipant={deleteRole} />
               </div>
               <div className="players participants">
                 <Input label="Player" add={addPlayer} labelColor="blue" />
-                <Participants participants={players} deleteFunction={deletePlayer} />
+                <Participants participants={players} deleteParticipant={deletePlayer} />
               </div>
             </div>
             <Button variant="contained" color="primary" onClick={toggleStart}>Start game</Button>

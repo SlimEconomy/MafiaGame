@@ -5,55 +5,56 @@ import Participants from './Participants'
 import { LooseObject, Player } from "../types"
 
 interface Props {
-    startGame: () => void;
     roles: Array<string>;
     players: Array<string>;
 }
 
-const StartGame: React.FC<Props> = ({ players, roles }) => {
-    const [activePlayers, setActivePlayers] = useState<LooseObject>({})
-    const [deadPlayers, setDeadPlayers] = useState<LooseObject>({});
-    const [participants, setParticipants] = useState<Array<Player>>([]);
+const ActiveGame: React.FC<Props> = ({ players, roles }) => {
+    const [playersInGame, setPlayersInGame] = useState<LooseObject>({});
 
     useEffect(() => {
-        const shuffledPlayersArray = shuffle(players);
-        const shuffledRolesArray = shuffle(roles);
-        setActivePlayers(assignRoles(shuffledPlayersArray, shuffledRolesArray))
+        const randomizedPlayersArray = shuffle(players);
+        const randomizedRolesArray = shuffle(roles);
+        setPlayersInGame(assignRoles(randomizedPlayersArray, randomizedRolesArray))
     }, [])
 
-    const deleteParticipant = (player: string, role?: string): void => { //transfer an active player to a dead one
-        if (role) {
-            const index = activePlayers[role].indexOf(player); //get index of this player in the role array
-            let deadPlayer: string = "";
-            if (index > -1) {
-                deadPlayer = activePlayers[role][index]; //save the dead player to push it to dead players
-                activePlayers[role].splice(index, 1); //remove dead player from active players
-            }
-            setActivePlayers({ //to update state with spliced array
-                ...activePlayers,
-            })
-            let deadPlayersObject: LooseObject = {
-                ...deadPlayers,
-                //if there are no dead players for a role, create a new array, else push it to the already dead players array
-            }
-            deadPlayersObject[role] ? deadPlayersObject[role].push(deadPlayer) : deadPlayersObject[role] = [deadPlayer]
-            setDeadPlayers(deadPlayersObject)
+    const setStatusToDead = (participant: Player | string) => {
+        if (typeof participant !== "string") {
+            const index = playersInGame[participant.role].indexOf(participant);
+            const playerToDie = playersInGame[participant.role][index];
+            playerToDie.isAlive = false;
+            setPlayersInGame({ ...playersInGame }); //update state
         }
     }
 
-    console.log(deadPlayers, activePlayers)
+    const getActivePlayers = (): Array<Player> => {
+        return getPlayersByCondition(true);
+    }
+
+    const getDeadPlayers = (): Array<Player> => {
+        return getPlayersByCondition(false);
+    }
+
+    const getPlayersByCondition = (condition: boolean): Array<Player> => { //true === getActivePlayers, false === getDeadPlayers
+        return Object.keys(playersInGame).reduce((playersAlive, role) => {
+            const playersOfRole = playersInGame[role];
+            const alivePlayersOfRole = playersOfRole.filter(player => player.isAlive === condition)
+            playersAlive.push(...alivePlayersOfRole);
+            return playersAlive;
+        }, [] as Array<Player>)
+    }
 
     return (
         <div>
-            {Object.keys(activePlayers).length !== 0 &&
+            {Object.keys(playersInGame).length !== 0 &&
                 <>
                     <div>
                         <h3 style={{ color: "#00FF7F" }}>Active players</h3>
-                        <Participants deleteFunction={deleteParticipant} participants={activePlayers} />
+                        <Participants deleteParticipant={setStatusToDead} participants={getActivePlayers()} />
                     </div>
                     <div>
                         <h3 style={{ color: "#EA3C53" }}>Dead players</h3>
-                        <Participants participants={deadPlayers} />
+                        <Participants participants={getDeadPlayers()} />
                     </div>
                 </>
             }
@@ -61,4 +62,4 @@ const StartGame: React.FC<Props> = ({ players, roles }) => {
     )
 }
 
-export default StartGame
+export default ActiveGame
