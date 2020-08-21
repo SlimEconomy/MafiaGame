@@ -16,15 +16,15 @@ body{
 }
 
 .inputs{
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  width: 70%;
+  margin: auto;
 }
 
 .input form{
   width: 20rem;
   height: 2rem;
   display: flex;
+  margin: auto
 }
 
 .input input{
@@ -52,6 +52,39 @@ body{
 
 #alert-dialog-title{
   text-align: center;
+}
+
+.role-input{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.role-input h2{
+  width: 20%;
+}
+
+.MuiSlider-root{
+  color: rgb(233, 233, 233) !important
+}
+
+.amount-setter{
+  display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.amount-setter svg:hover{
+  cursor: pointer;
+}
+
+.role-input div{
+  flex: 0.7
+}
+
+.participant{
+  width: 20rem;
+  margin: auto
 }
 
 button:hover{
@@ -140,6 +173,15 @@ button:hover{
 @media (max-width: 1000px){
   .App{
     width: 100%;
+  }
+}
+
+@media (max-width: 500px){
+  .inputs{
+    width: 100%;
+  }
+  .role-input{
+    justify-content: space-evenly;
   }
 }
 

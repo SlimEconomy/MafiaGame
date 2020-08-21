@@ -2,9 +2,16 @@ import React, { useState } from 'react'
 import { Button, Dialog, DialogContent, DialogTitle, DialogContentText, DialogActions } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/Info';
 import SupportedRole from './SupportedRole';
+import { Player } from '../types';
 const supportedRoles = require("../Data/supportedRoles");
 
-const InfoDialog = () => {
+interface Props {
+    //whatToDisplay: string //either listing (supported) roles or describing role and player
+    player?: Player
+    title: string
+}
+
+const InfoDialog: React.FC<Props> = ({ title, player }) => {
     const [open, setOpen] = useState(false);
 
     const openDialog = () => {
@@ -26,10 +33,14 @@ const InfoDialog = () => {
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">{"Supported roles"}</DialogTitle>
+                <DialogTitle id="alert-dialog-title">{title}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {supportedRoles.map((supportedRole: string) => <SupportedRole key={supportedRole} role={supportedRole} />)}
+                        {player ?
+                            player.name
+                            :
+                            supportedRoles.map((supportedRole: string) => <SupportedRole key={supportedRole} role={supportedRole} />)
+                        }
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>

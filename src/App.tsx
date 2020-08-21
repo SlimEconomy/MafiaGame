@@ -5,26 +5,37 @@ import Participants from './Components/Participants';
 import ActiveGame from './Components/ActiveGame';
 import Button from '@material-ui/core/Button';
 import InfoDialog from './Components/InfoDialog';
-import { Player } from "./types"
+import { Player, Role, RolesObject } from "./types"
+import RoleInput from './Components/RoleInput';
+import { initializeRoleObject } from './initializeRoleObject';
+const supportedRoles = require("./Data/supportedRoles.json")
 
 
 function App() {
   const [players, setPlayers] = useState<string[]>([]);
-  const [roles, setRoles] = useState<string[]>([]);
+  const [roles, setRoles] = useState<RolesObject>({});
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
     const playersFromStorage = localStorage.getItem("players");
     const playersArray: Array<string> = playersFromStorage ? JSON.parse(playersFromStorage) : [];
     const rolesFromStorage = localStorage.getItem("roles");
-    const rolesArray: Array<string> = rolesFromStorage ? JSON.parse(rolesFromStorage) : [];
+    const rolesObject = rolesFromStorage ? JSON.parse(rolesFromStorage) : {};
+    const initialRoleObject = initializeRoleObject();
     setPlayers(playersArray);
-    setRoles(rolesArray);
+    if (Object.keys(rolesObject).length !== 0) {
+      setRoles(rolesObject);
+    }
+    else {
+      setRoles(initialRoleObject);
+    }
   }, [])
 
   const toggleStart = () => {
-    if (!players.length && !roles.length) return alert("Can't start a game with no participants.")
-    if (players.length !== roles.length) return alert("Players and roles must be the same amount.");
+    const amountOfParticipatingRoles = Object.values(roles).reduce((amount, total) => total + amount);
+    console.log(players, amountOfParticipatingRoles);
+    if (!players.length && !amountOfParticipatingRoles) return alert("Can't start a game with no participants.");
+    if (players.length !== amountOfParticipatingRoles) return alert("Players and roles must be the same amount.");
     setGameStarted(!gameStarted);
     //save state in local storage when game is started
     localStorage.setItem("players", JSON.stringify(players));
@@ -36,18 +47,6 @@ function App() {
     else setPlayers([...players, participant])
   }
 
-  const addRole = (participant: string) => {
-    setRoles([...roles, participant])
-  }
-
-  const deleteRole = (participant: string | Player) => {
-    if (typeof participant === "string") {
-      const updatedArray = roles.filter(role => role !== participant);
-      localStorage.setItem("roles", JSON.stringify(updatedArray));
-      setRoles(updatedArray);
-    }
-  }
-
   const deletePlayer = (participant: string | Player) => {
     if (typeof participant === "string") {
       const updatedArray = players.filter(player => player !== participant);
@@ -56,11 +55,26 @@ function App() {
     }
   }
 
+  const rolesArray: Array<string> = Object.keys(roles).reduce((rolesArray, role) => {
+    const amountOfCurrentRole = roles[role];
+    for (let i = 0; i < amountOfCurrentRole; i++) {
+      rolesArray.push(role);
+    }
+    return rolesArray;
+  }, [] as Array<string>);
+
+  const updateAmountOfRole = (role: Role, amount: number) => {
+    setRoles({
+      ...roles,
+      [role]: amount
+    })
+  }
+
   return (
     <div className="App">
       <div className="info-and-title">
         <h1>MafiaGame</h1>
-        <InfoDialog />
+        <InfoDialog title="Supported roles" />
       </div>
       {gameStarted && <div className="go-back-button">
         <Button variant="contained" color="secondary" size="small" onClick={toggleStart}>New game/Go back</Button>
@@ -68,15 +82,14 @@ function App() {
       }
       {
         gameStarted ?
-          <ActiveGame players={players} roles={roles} /> :
+          <ActiveGame players={players} roles={rolesArray} /> :
           <>
             <div className="inputs">
               <div className="roles participants">
-                <Input label="Role" add={addRole} labelColor="green" />
-                <Participants participants={roles} deleteParticipant={deleteRole} />
+                {supportedRoles.map((role: Role) => <RoleInput role={role} amount={roles[role]} updateAmount={updateAmountOfRole} />)}
               </div>
               <div className="players participants">
-                <Input label="Player" add={addPlayer} labelColor="blue" />
+                <Input label="Player" addParticipant={addPlayer} labelColor="blue" />
                 <Participants participants={players} deleteParticipant={deletePlayer} />
               </div>
             </div>

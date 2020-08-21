@@ -10,3 +10,7 @@ export type Role = "mafia" | "citizen" | "detective" | "healer" | "hunter"
 export interface LooseObject {
     [key: string]: Array<Player>
 }
+
+export interface RolesObject {
+    [key: string]: number
+}
