@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/MafiaGame/static/css/main.e9c0857f.chunk.css",
-    "main.js": "/MafiaGame/static/js/main.4aa2bcea.chunk.js",
-    "main.js.map": "/MafiaGame/static/js/main.4aa2bcea.chunk.js.map",
+    "main.css": "/MafiaGame/static/css/main.29320aa3.chunk.css",
+    "main.js": "/MafiaGame/static/js/main.89112f31.chunk.js",
+    "main.js.map": "/MafiaGame/static/js/main.89112f31.chunk.js.map",
     "runtime-main.js": "/MafiaGame/static/js/runtime-main.01868803.js",
     "runtime-main.js.map": "/MafiaGame/static/js/runtime-main.01868803.js.map",
-    "static/js/2.97d67973.chunk.js": "/MafiaGame/static/js/2.97d67973.chunk.js",
-    "static/js/2.97d67973.chunk.js.map": "/MafiaGame/static/js/2.97d67973.chunk.js.map",
+    "static/js/2.f5c987b7.chunk.js": "/MafiaGame/static/js/2.f5c987b7.chunk.js",
+    "static/js/2.f5c987b7.chunk.js.map": "/MafiaGame/static/js/2.f5c987b7.chunk.js.map",
     "index.html": "/MafiaGame/index.html",
-    "precache-manifest.2a6bae7e8a698bef3f2915357713f14f.js": "/MafiaGame/precache-manifest.2a6bae7e8a698bef3f2915357713f14f.js",
+    "precache-manifest.08d685211a6277b34b55459332eeec6d.js": "/MafiaGame/precache-manifest.08d685211a6277b34b55459332eeec6d.js",
     "service-worker.js": "/MafiaGame/service-worker.js",
-    "static/css/main.e9c0857f.chunk.css.map": "/MafiaGame/static/css/main.e9c0857f.chunk.css.map",
-    "static/js/2.97d67973.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.97d67973.chunk.js.LICENSE.txt",
+    "static/css/main.29320aa3.chunk.css.map": "/MafiaGame/static/css/main.29320aa3.chunk.css.map",
+    "static/js/2.f5c987b7.chunk.js.LICENSE.txt": "/MafiaGame/static/js/2.f5c987b7.chunk.js.LICENSE.txt",
     "static/media/detective.png": "/MafiaGame/static/media/detective.9ae23102.png",
     "static/media/hunter.png": "/MafiaGame/static/media/hunter.662fad8e.png",
     "static/media/mafia.png": "/MafiaGame/static/media/mafia.f6c60ed0.png"
   },
   "entrypoints": [
     "static/js/runtime-main.01868803.js",
-    "static/js/2.97d67973.chunk.js",
-    "static/css/main.e9c0857f.chunk.css",
-    "static/js/main.4aa2bcea.chunk.js"
+    "static/js/2.f5c987b7.chunk.js",
+    "static/css/main.29320aa3.chunk.css",
+    "static/js/main.89112f31.chunk.js"
   ]
 }
