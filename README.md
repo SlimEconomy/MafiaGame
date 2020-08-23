@@ -10,7 +10,7 @@ The lower section shows an input which can be used to enter the names of all par
 By pressing the **Start game** button, the roles will be randomly assigned to all players. 
 
 ![ingame view](https://i.imgur.com/Zr6CvOI.png)
-You can always go back to the main page by pressing the "New game/go back" button while ingame.
+You can always go back to the main page by pressing the **New game/go back** button while ingame.
 
 ![inagame view with dead players](https://i.imgur.com/T4nC4pl.png)
 
