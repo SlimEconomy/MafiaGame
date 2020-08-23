@@ -36,11 +36,11 @@ const ActiveGame: React.FC<Props> = ({ players, roles }) => {
     }
 
     const getPlayersByCondition = (condition: boolean): Array<Player> => { //true === getActivePlayers, false === getDeadPlayers
-        return Object.keys(playersInGame).reduce((playersAlive, role) => {
+        return Object.keys(playersInGame).reduce((playersByCondition, role) => {
             const playersOfRole = playersInGame[role];
-            const alivePlayersOfRole = playersOfRole.filter(player => player.isAlive === condition)
-            playersAlive.push(...alivePlayersOfRole);
-            return playersAlive;
+            const playersOfRoleByCondition = playersOfRole.filter(player => player.isAlive === condition)
+            playersByCondition.push(...playersOfRoleByCondition);
+            return playersByCondition;
         }, [] as Array<Player>)
     }
 
