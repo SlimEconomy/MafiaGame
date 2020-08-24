@@ -2,21 +2,21 @@ import React from 'react'
 import DeleteIcon from '@material-ui/icons/Delete';
 import CloseIcon from '@material-ui/icons/Close';
 import { Role, Player } from "../types"
-import InfoDialog from './InfoDialog';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 
 const isParticipantTypeofPlayer = (participant: Player | string) => {
     return !(typeof participant === "string");
 }
 
 interface Props {
-    participant: string | Player,
+    participant: string | Player;
     deleteFunction?: (participant: Player | string) => void;
-    role?: string
+    reviveParticipant?: (participant: Player | string) => void;
 }
 
-const Participant: React.FC<Props> = ({ participant, deleteFunction }) => {
+const Participant: React.FC<Props> = ({ participant, deleteFunction, reviveParticipant }) => {
     let bgImage: string = "";
-    if (!(typeof participant === "string")) {
+    if (!(typeof participant === "string")) { //if typeof player
         try {
             bgImage = require(`../Images/${participant.role.toLowerCase()}.png`);
         }
@@ -33,12 +33,15 @@ const Participant: React.FC<Props> = ({ participant, deleteFunction }) => {
                 : //else string
                 <h3>{participant}</h3>
             }
-            {deleteFunction && //need to check because deleteFunction is optional
+            {deleteFunction &&
                 <div onClick={() => deleteFunction(participant)} >
                     {isParticipantTypeofPlayer(participant) ? <CloseIcon color="error" fontSize="large" /> : <DeleteIcon color="error" />}
                 </div>
-                //TODO: add revert button for dead players
             }
+            {reviveParticipant &&
+                <div onClick={() => reviveParticipant(participant)}>
+                    <ArrowUpwardIcon fontSize="large" className="revive-icon" />
+                </div>}
         </div>
     )
 }

@@ -50,6 +50,10 @@ body{
   width: 15rem;
 }
 
+.revive-icon{
+  color: #32CD32
+}
+
 #alert-dialog-title{
   text-align: center;
 }

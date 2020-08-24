@@ -18,13 +18,23 @@ const ActiveGame: React.FC<Props> = ({ players, roles }) => {
         setPlayersInGame(assignRoles(randomizedPlayersArray, randomizedRolesArray))
     }, [])
 
-    const setStatusToDead = (participant: Player | string) => {
+    const setStatusOfParticipant = (participant: Player | string, status: string) => {
         if (typeof participant !== "string") {
             const index = playersInGame[participant.role].indexOf(participant);
             const playerToDie = playersInGame[participant.role][index];
-            playerToDie.isAlive = false;
+            if (status === "alive") playerToDie.isAlive = true;
+            else if (status === "dead") playerToDie.isAlive = false;
             setPlayersInGame({ ...playersInGame }); //update state
         }
+    }
+
+    const killParticipant = (participant: Player | string) => {
+        setStatusOfParticipant(participant, "dead");
+    }
+
+    const reviveParticipant = (participant: Player | string) => {
+        setStatusOfParticipant(participant, "alive");
+
     }
 
     const getActivePlayers = (): Array<Player> => {
@@ -50,11 +60,11 @@ const ActiveGame: React.FC<Props> = ({ players, roles }) => {
                 <>
                     <div>
                         <h3 style={{ color: "#00FF7F" }}>Active players</h3>
-                        <Participants deleteParticipant={setStatusToDead} participants={getActivePlayers()} />
+                        <Participants deleteParticipant={killParticipant} participants={getActivePlayers()} />
                     </div>
                     <div>
                         <h3 style={{ color: "#EA3C53" }}>Dead players</h3>
-                        <Participants participants={getDeadPlayers()} />
+                        <Participants participants={getDeadPlayers()} reviveParticipant={reviveParticipant} />
                     </div>
                 </>
             }
