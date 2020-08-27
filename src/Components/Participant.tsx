@@ -10,11 +10,11 @@ const isParticipantTypeofPlayer = (participant: Player | string) => {
 
 interface Props {
     participant: string | Player;
-    deleteFunction?: (participant: Player | string) => void;
+    deleteParticipant?: (participant: Player | string) => void;
     reviveParticipant?: (participant: Player | string) => void;
 }
 
-const Participant: React.FC<Props> = ({ participant, deleteFunction, reviveParticipant }) => {
+const Participant: React.FC<Props> = ({ participant, deleteParticipant, reviveParticipant }) => {
     let bgImage: string = "";
     if (!(typeof participant === "string")) { //if typeof player
         try {
@@ -33,8 +33,8 @@ const Participant: React.FC<Props> = ({ participant, deleteFunction, reviveParti
                 : //else string
                 <h3>{participant}</h3>
             }
-            {deleteFunction &&
-                <div onClick={() => deleteFunction(participant)} >
+            {deleteParticipant &&
+                <div onClick={() => deleteParticipant(participant)} >
                     {isParticipantTypeofPlayer(participant) ? <CloseIcon color="error" fontSize="large" /> : <DeleteIcon color="error" />}
                 </div>
             }

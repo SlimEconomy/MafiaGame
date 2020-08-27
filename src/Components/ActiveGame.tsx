@@ -34,7 +34,6 @@ const ActiveGame: React.FC<Props> = ({ players, roles }) => {
 
     const reviveParticipant = (participant: Player | string) => {
         setStatusOfParticipant(participant, "alive");
-
     }
 
     const getActivePlayers = (): Array<Player> => {
